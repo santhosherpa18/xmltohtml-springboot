@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+        <!--
+            define vocabulary identification
+            PUBLIC ID: -//vendor//vocabulary//EN
+            SYSTEM ID: http://server/path/BS.dtd
+
+        -->
+
+        <!--
+            An example how to use this DTD from your XML document:
+
+            <?xml version="1.0"?>
+
+            <!DOCTYPE body SYSTEM "bhashya.dtd">
+
+            <body>
+            ...
+            </body>
+        -->
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT body (document)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT document (chapter)*>
+        <!ATTLIST document
+                id CDATA #IMPLIED
+                title CDATA #IMPLIED
+                name CDATA #IMPLIED
+                type CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT chapter (chapter-heading|introduction|section|verse|leading-bhashya|bhashya|gadya|uvaaca|author-note)*>
+        <!ATTLIST chapter
+                id CDATA #IMPLIED
+                type CDATA #IMPLIED
+                name CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT chapter-heading (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT section (section-heading|verse|section-intro|bhashya|adhikarana|author-note )*>
+        <!ATTLIST section
+                id CDATA #IMPLIED
+                type CDATA #IMPLIED
+                name CDATA #IMPLIED
+                title CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT section-heading (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT section-intro (introduction| pramana)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT introduction (line)*>
+        <!ATTLIST introduction
+                id CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT line (#PCDATA|em|blockquote|br)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT adhikarana (adhikarana-heading|verse)*>
+        <!ATTLIST adhikarana
+                id CDATA #IMPLIED
+                title CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT adhikarana-heading (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT verse (shloka|uvaaca|gadya|verse-text|bhashya-collection|summary|author-note|introduction)*>
+        <!ATTLIST verse
+                id CDATA #IMPLIED
+                type CDATA #IMPLIED
+                adhikarana-id CDATA #IMPLIED
+                adhikarana CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT verse-text (line|gadya|uvaaca)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT bhashya-collection (pramana | bhashya | author-note )*>
+        <!ATTLIST bhashya-collection
+                id CDATA #IMPLIED
+                >
+
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT pramana (#PCDATA | pramana-padya | pramana-gadya)*>
+        <!ELEMENT pramana-padya (#PCDATA | line)*>
+        <!ATTLIST pramana-padya
+                id CDATA #IMPLIED
+                >
+        <!ELEMENT pramana-gadya (#PCDATA | line)*>
+        <!ATTLIST pramana-gadya
+                id CDATA #IMPLIED
+                >
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT uvaaca (#PCDATA)>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT shloka (line)*>
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT gadya (#PCDATA | line)*>
+        <!ATTLIST gadya
+                id CDATA #IMPLIED
+                >
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT bhashya (#PCDATA|line|blockquote|br|em)*>
+        <!ATTLIST bhashya
+                id CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT em (#PCDATA)>
+        <!ATTLIST em
+                type CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT blockquote (reference)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT reference (#PCDATA|br|em)*>
+        <!ATTLIST reference
+                type CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT br EMPTY>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT summary (leading-bhashya)*>
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT leading-bhashya (#PCDATA)>
+        <!ATTLIST leading-bhashya
+                id CDATA #IMPLIED
+                >
+
+        <!--- Put your DTDDoc comment here. -->
+        <!ELEMENT author-note (#PCDATA)>
